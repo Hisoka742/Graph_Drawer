@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.10)
+project(GraphDrawing)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+include_directories(include)
+
+add_executable(GraphDrawing
+    src/main.cpp
+    src/bmp.cpp
+    src/draw.cpp
+    src/fruchterman_reingold.cpp
+    src/graph.cpp
+ "include/constants.h")
+
+enable_testing()
+
+add_test(NAME TestGraph1 COMMAND GraphDrawing ${CMAKE_SOURCE_DIR}/test_graphs/graph1.txt)
+add_test(NAME TestGraph2 COMMAND GraphDrawing ${CMAKE_SOURCE_DIR}/test_graphs/graph2.txt)
+add_test(NAME TestGraph3 COMMAND GraphDrawing ${CMAKE_SOURCE_DIR}/test_graphs/graph3.txt)
